@@ -32,15 +32,5 @@
     "geoip-lite": "^1.4.1",
     "micro": "^7.3.3",
     "microrouter": "^2.1.0"
-  },
-  "now": {
-    "name": "micro-geoip-lite",
-    "alias": [
-      "micro-geoip-lite",
-      "geoip-lite"
-    ]
-  },
-  "devDependencies": {
-    "now": "^17.1.1"
   }
 }
