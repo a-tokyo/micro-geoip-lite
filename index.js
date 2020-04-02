@@ -27,7 +27,7 @@ const lookup = (ip, timeout) =>
     clearTimeout(timeoutTimer);
     /* resolve */
     if (result) {
-      return resolve(result);
+      return resolve({ ip, ...result });
     }
     /* reject - failed to fin */
     return reject(new Error('Failed to find IP'));
