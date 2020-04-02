@@ -1,0 +1,43 @@
+{
+  "name": "micro-geoip-lite",
+  "version": "0.0.1",
+  "description": "Small microservice that geo looks up an IP",
+  "main": "index.js",
+  "private": true,
+  "repository": "https://github.com/a-tokyo/micro-geoip-lite",
+  "scripts": {
+    "start": "micro",
+    "test": "echo \"No test specified\" && exit 0",
+    "now:deploy": "now",
+    "now:alias": "now alias",
+    "now": "npm run now:deploy && npm run now:alias"
+  },
+  "keywords": [
+    "micro",
+    "micro service",
+    "ip",
+    "geoip",
+    "geoip-lite",
+    "country",
+    "request-country",
+    "decode"
+  ],
+  "author": {
+    "name": "Ahmed Tarek",
+    "email": "ahmed.tokyo1@gmail.com",
+    "url": "https://github.com/A-Tokyo"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "geoip-lite": "^1.4.1",
+    "micro": "^7.3.3",
+    "microrouter": "^2.1.0"
+  },
+  "now": {
+    "name": "micro-geoip-lite",
+    "alias": [
+      "micro-geoip-lite",
+      "geoip-lite"
+    ]
+  }
+}
