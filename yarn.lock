@@ -576,6 +576,11 @@ node-version@1.0.0:
   resolved "https://registry.yarnpkg.com/node-version/-/node-version-1.0.0.tgz#1b9b9584a9a7f7a6123f215cd14a652bf21ab19e"
   integrity sha1-G5uVhKmn96YSPyFc0UplK/IasZ4=
 
+now@^17.1.1:
+  version "17.1.1"
+  resolved "https://registry.yarnpkg.com/now/-/now-17.1.1.tgz#5e5fade17c3f9c3b7e3900be3febf7c21c7d6935"
+  integrity sha512-Hmh8eMSt4FxS1YBwaLrdJuzEVm6ZtS4JCY0AZE+JTnTtDGHVaQMUI85FaPvasSIhKLa+7xf6v7lmTgM39VW/8w==
+
 npm-run-path@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/npm-run-path/-/npm-run-path-1.0.0.tgz#f5c32bf595fe81ae927daec52e82f8b000ac3c8f"

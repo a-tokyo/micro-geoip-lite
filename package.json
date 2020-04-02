@@ -39,5 +39,8 @@
       "micro-geoip-lite",
       "geoip-lite"
     ]
+  },
+  "devDependencies": {
+    "now": "^17.1.1"
   }
 }

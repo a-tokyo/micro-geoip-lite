@@ -1,6 +1,10 @@
 {
   "version": 2,
-  "name": "nodejs-express",
+  "name": "micro-geoip-lite",
+  "alias": [
+    "micro-geoip-lite",
+    "geoip-lite"
+  ],
   "builds": [
       { "src": "index.js", "use": "@now/node" }
   ],
