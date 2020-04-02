@@ -3,6 +3,7 @@ const net = require('net');
 const { router, get } = require('microrouter');
 const { send } = require('micro');
 const geoip = require('geoip-lite');
+const get_ip = require('ipware')().get_ip;
 
 const DEFAULT_TIMEOUT = 1000 * 5; // 5 seconds
 const MAX_TIMEOUT = DEFAULT_TIMEOUT * 2;
@@ -38,7 +39,7 @@ const lookup = (ip, timeout) =>
  * @queryparam {string} timout - timout in ms
  */
 const rootRoute = async (req, res) => {
-  const ip = req.query['ip'];
+  const ip = req.query['ip'] || get_ip(req).clientIp;
   const timeout = Number(req.query['timeout']) || DEFAULT_TIMEOUT;
 
   if (!ip) {

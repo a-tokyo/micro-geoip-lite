@@ -30,6 +30,7 @@
   "license": "MIT",
   "dependencies": {
     "geoip-lite": "^1.4.1",
+    "ipware": "^2.0.0",
     "micro": "^7.3.3",
     "microrouter": "^2.1.0"
   }
