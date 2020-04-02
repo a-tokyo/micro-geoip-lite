@@ -62,7 +62,7 @@ const rootRoute = async (req, res) => {
     const result = await lookup(ip, timeout);
     send(res, 200, result);
   } catch (err) {
-    send(res, 500, { error: err });
+    send(res, 500, { error: err && err.message });
   }
 };
 
