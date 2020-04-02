@@ -1,6 +1,6 @@
 # micro-geoip-lite
 
-> Small microservice that geo looks up an IP.
+> 🌍 Small microservice that geo looks up an IP.
 
 # Usage
 
