@@ -5,6 +5,7 @@ const { send } = require('micro');
 const geoip = require('geoip-lite');
 
 const DEFAULT_TIMEOUT = 1000 * 5; // 5 seconds
+const MAX_TIMEOUT = DEFAULT_TIMEOUT * 2;
 
 /**
  * geoip lookup function with time limiter
@@ -59,7 +60,7 @@ const rootRoute = async (req, res) => {
   );
 
   try {
-    const result = await lookup(ip, timeout);
+    const result = await lookup(ip, Math.min(timeout, MAX_TIMEOUT));
     send(res, 200, result);
   } catch (err) {
     send(res, 500, { error: err && err.message });
