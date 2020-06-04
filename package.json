@@ -29,7 +29,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "geoip-lite": "^1.4.1",
+    "geoip-lite": "^1.4.2",
     "ipware": "^2.0.0",
     "micro": "^8.0.0",
     "microrouter": "^2.1.0"
