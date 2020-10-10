@@ -3,5 +3,5 @@
   "name": "micro-geoip-lite",
   "alias": ["micro-geoip-lite", "geoip-lite"],
   "builds": [{ "src": "src/index.js", "use": "@now/node" }],
-  "routes": [{ "src": "/src/(.*)", "dest": "src/index.js" }]
+  "routes": [{ "src": "/(.*)", "dest": "src/index.js" }]
 }
