@@ -1,8 +1,10 @@
 # micro-geoip-lite
 
-> 🌍 Small microservice that geo looks up an IP.
+> 🌍 Small microservice that geo looks up an IP for free using geoip-lite database.
 
-# Usage
+[![codecov](https://codecov.io/gh/A-Tokyo/micro-geoip-lite/branch/main/graph/badge.svg)](https://codecov.io/gh/A-Tokyo/micro-geoip-lite)
+
+## Usage
 
 - [https://geoip-lite.now.sh/?ip=207.97.227.239](https://geoip-lite.now.sh/?ip=207.97.227.239)
 ```js
@@ -21,9 +23,14 @@
 }
 ```
 
-# Credits
+### Query Params
+- ip?: string // IP to lookup, defaults to request.ip
+- timeout?: : number // timeout before failing, defaults to 5 seconds -- maximum of 10 seconds and minimum of 1/2 seconds
 
-- [bluesmoon/node-geoip](https://github.com/bluesmoon/node-geoip) 
-- [zeit/micro](https://github.com/zeit/micro) 
+---
 
-Proudly hosted on [now](https://zeit.co/now)
+## Automation Note
+- This repo is auto maintained by bots. For example: dependabot opens weekly PRs to upgrade dependencies that are auto merged if the tests pass.
+- This will keep the repo up to date with minimal human interaction.
+
+Hosted on [now](https://zeit.co/now)

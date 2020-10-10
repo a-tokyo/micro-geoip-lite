@@ -1,18 +1,16 @@
 {
   "name": "micro-geoip-lite",
   "version": "0.0.1",
-  "description": "🌍 Small microservice that geo looks up an IP",
-  "main": "index.js",
+  "description": "🌍 Small microservice that geo looks up an IP for free using geoip-lite database",
+  "main": "src/index.js",
   "private": true,
   "repository": "https://github.com/a-tokyo/micro-geoip-lite",
   "scripts": {
     "start": "micro",
-    "test": "echo \"No test specified\" && exit 0",
+    "test": "jest",
     "now:deploy": "now",
     "now:alias": "now alias",
-    "now": "npm run now:deploy && npm run now:alias",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
+    "now": "npm run now:deploy && npm run now:alias"
   },
   "keywords": [
     "micro",
@@ -33,9 +31,12 @@
   "dependencies": {
     "geoip-lite": "^1.4.2",
     "ipware": "^2.0.0",
-    "micro": "^8.0.0",
-    "microrouter": "^2.1.0",
-    "snyk": "^1.364.0"
+    "micro": "^9.3.4",
+    "microrouter": "^3.1.3"
   },
-  "snyk": true
+  "devDependencies": {
+    "jest": "^26.5.2",
+    "micro-geoip-lite": "^0.0.2",
+    "supertest": "^5.0.0"
+  }
 }
