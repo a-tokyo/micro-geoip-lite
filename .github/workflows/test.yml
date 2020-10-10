@@ -2,11 +2,9 @@ name: Test Release Publish
 
 on:
   push:
-    branches:
-      - main
 
 jobs:
-  test_release_publish:
+  test:
     name: Running tests and releasing
     runs-on: ubuntu-latest
 
