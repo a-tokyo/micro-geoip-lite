@@ -8,7 +8,8 @@ const get_ip = require('ipware')().get_ip;
 const lookup = require('./lookup');
 
 const DEFAULT_TIMEOUT = 1000 * 5; // 5 seconds
-const MAX_TIMEOUT = DEFAULT_TIMEOUT * 2;
+const MIN_TIMEOUT = 500; // 1/2 second
+const MAX_TIMEOUT = DEFAULT_TIMEOUT * 2; // 10 seconds
 
 /**
  * Root Route
@@ -34,7 +35,10 @@ const rootRoute = async (req, res) => {
   );
 
   try {
-    const result = await lookup(ip, Math.min(timeout, MAX_TIMEOUT));
+    const result = await lookup(
+      ip,
+      Math.max(MIN_TIMEOUT, Math.min(timeout, MAX_TIMEOUT)),
+    );
     send(res, 200, result);
   } catch (err) {
     send(res, 500, { error: err && err.message });
