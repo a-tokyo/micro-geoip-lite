@@ -27,6 +27,9 @@
 - ip?: string // IP to lookup, defaults to request.ip
 - timeout?: : number // timeout before failing, defaults to 5 seconds -- maximum of 10 seconds and minimum of 1/2 seconds
 
+### Usage with JS
+- A library is available for javascript out of the box on npm [micro-geoip-lite-js](https://github.com/A-Tokyo/micro-geoip-lite-js).
+
 ---
 
 ## Automation Note
