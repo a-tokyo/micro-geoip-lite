@@ -10,9 +10,7 @@
     "test": "jest",
     "now:deploy": "now",
     "now:alias": "now alias",
-    "now": "npm run now:deploy && npm run now:alias",
-    "snyk-protect": "snyk protect",
-    "prepare": "yarn run snyk-protect"
+    "now": "npm run now:deploy && npm run now:alias"
   },
   "keywords": [
     "micro",
@@ -34,13 +32,11 @@
     "geoip-lite": "^1.4.2",
     "ipware": "^2.0.0",
     "micro": "^9.3.4",
-    "microrouter": "^3.1.3",
-    "snyk": "^1.413.2"
+    "microrouter": "^3.1.3"
   },
   "devDependencies": {
     "jest": "^26.5.2",
     "micro-geoip-lite": "^0.0.2",
     "supertest": "^5.0.0"
-  },
-  "snyk": true
+  }
 }
