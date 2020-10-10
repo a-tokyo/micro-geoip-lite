@@ -35,7 +35,7 @@
     "ipware": "^2.0.0",
     "micro": "^8.0.0",
     "microrouter": "^2.1.0",
-    "snyk": "^1.364.0"
+    "snyk": "^1.398.1"
   },
   "snyk": true
 }
