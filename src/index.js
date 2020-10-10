@@ -19,10 +19,6 @@ const rootRoute = async (req, res) => {
   const ip = req.query['ip'] || get_ip(req).clientIp;
   const timeout = Number(req.query['timeout']) || DEFAULT_TIMEOUT;
 
-  if (!ip) {
-    return send(res, 400, { error: 'Please submit an IP in the querystring' });
-  }
-
   if (!net.isIP(ip)) {
     return send(res, 400, { error: 'Please only submit valid IPs' });
   }

@@ -1,6 +1,6 @@
 const geoip = require('geoip-lite');
 
-const lookup = require('./lookup');
+const lookup = require('../src/lookup');
 
 jest.useFakeTimers();
 

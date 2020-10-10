@@ -1,6 +1,6 @@
 const request = require('supertest');
 
-const app = require('./index');
+const app = require('../src/index');
 
 const ip = '207.97.227.239';
 
