@@ -1,4 +1,5 @@
 const request = require('supertest');
+
 const app = require('./index');
 
 const ip = '207.97.227.239';
@@ -40,9 +41,8 @@ describe('Post Endpoints', () => {
   });
 
   it('should return 400 if invalid ip', async () => {
-    
-    const res = await request(app).get('/').query({ ip });
-    expect(res.statusCode).toEqual(200);
-    _testSuccessResponseBody(res);
+    const res = await request(app).get('/').query({ ip: 'dasdasds' });
+    expect(res.statusCode).toEqual(400);
+    expect(res.body.error.includes('valid')).toBe(true);
   });
 });

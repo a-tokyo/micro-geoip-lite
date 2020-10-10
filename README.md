@@ -2,6 +2,8 @@
 
 > 🌍 Small microservice that geo looks up an IP.
 
+[![codecov](https://codecov.io/gh/A-Tokyo/micro-geoip-lite/branch/main/graph/badge.svg)](https://codecov.io/gh/A-Tokyo/micro-geoip-lite)
+
 # Usage
 
 - [https://geoip-lite.now.sh/?ip=207.97.227.239](https://geoip-lite.now.sh/?ip=207.97.227.239)
