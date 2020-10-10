@@ -39,6 +39,7 @@
   },
   "devDependencies": {
     "jest": "^26.5.2",
+    "micro-geoip-lite": "^0.0.2",
     "supertest": "^5.0.0"
   },
   "snyk": true
