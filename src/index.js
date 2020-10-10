@@ -5,33 +5,10 @@ const { send } = require('micro');
 const geoip = require('geoip-lite');
 const get_ip = require('ipware')().get_ip;
 
+const lookup = require('./lookup');
+
 const DEFAULT_TIMEOUT = 1000 * 5; // 5 seconds
 const MAX_TIMEOUT = DEFAULT_TIMEOUT * 2;
-
-/**
- * geoip lookup function with time limiter
- * @param {string} ip
- * @param {number} timeout
- */
-const lookup = (ip, timeout) =>
-  new Promise((resolve, reject) => {
-    /* setTimeout safeguard */
-    const timeoutTimer = setTimeout(
-      /**reject - timeout exceeded */
-      () => reject(new Error(`timeout - exceeded ${timeout}ms`)),
-      timeout,
-    );
-    /* Execute */
-    const result = geoip.lookup(ip);
-    /* Clear timer */
-    clearTimeout(timeoutTimer);
-    /* resolve */
-    if (result) {
-      return resolve({ ip, ...result });
-    }
-    /* reject - failed to fin */
-    return reject(new Error('Failed to find IP'));
-  });
 
 /**
  * Root Route

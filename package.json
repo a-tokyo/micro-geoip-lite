@@ -2,12 +2,12 @@
   "name": "micro-geoip-lite",
   "version": "0.0.1",
   "description": "🌍 Small microservice that geo looks up an IP",
-  "main": "index.js",
+  "main": "src/index.js",
   "private": true,
   "repository": "https://github.com/a-tokyo/micro-geoip-lite",
   "scripts": {
     "start": "micro",
-    "test": "echo \"No test specified\" && exit 0",
+    "test": "jest",
     "now:deploy": "now",
     "now:alias": "now alias",
     "now": "npm run now:deploy && npm run now:alias",
@@ -36,6 +36,10 @@
     "micro": "^8.0.0",
     "microrouter": "^2.1.0",
     "snyk": "^1.364.0"
+  },
+  "devDependencies": {
+    "jest": "^26.5.2",
+    "supertest": "^5.0.0"
   },
   "snyk": true
 }

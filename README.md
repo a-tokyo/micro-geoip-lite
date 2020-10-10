@@ -21,6 +21,10 @@
 }
 ```
 
+## Automation Note
+- This repo is auto maintained by bots. For example: dependabot opens weekly PRs to upgrade dependencies that are auto merged if the tests pass.
+- This will keep the repo up to date with minimal human interaction.
+
 # Credits
 
 - [bluesmoon/node-geoip](https://github.com/bluesmoon/node-geoip) 
