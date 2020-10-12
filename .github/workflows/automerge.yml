@@ -12,4 +12,4 @@ jobs:
         with:
           # major, minor, patch
           target: major
-          github-token: ${{ secrets.mytoken }}
+          github-token: ${{ secrets.MY_GITHUB_TOKEN }}
