@@ -2,7 +2,7 @@
 
 > 🌍 Small microservice that geo looks up an IP for free using geoip-lite database.
 
-[![codecov](https://codecov.io/gh/A-Tokyo/micro-geoip-lite/branch/main/graph/badge.svg)](https://codecov.io/gh/A-Tokyo/micro-geoip-lite)
+[![Test Release Publish](https://github.com/A-Tokyo/micro-geoip-lite/actions/workflows/test.yml/badge.svg)](https://github.com/A-Tokyo/micro-geoip-lite/actions/workflows/test.yml) [![codecov](https://codecov.io/gh/A-Tokyo/micro-geoip-lite/branch/main/graph/badge.svg)](https://codecov.io/gh/A-Tokyo/micro-geoip-lite)
 
 ## Usage
 
