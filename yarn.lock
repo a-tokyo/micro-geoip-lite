@@ -1676,10 +1676,10 @@ gensync@^1.0.0-beta.2:
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
   integrity sha512-3hN7NaskYvMDLQY55gnW3NQ+mesEAepTqlg+VEbj7zzqEMBVNhzcGYYeqFo/TlYz6eQiFcp1HcsCZO+nGgS8zg==
 
-geoip-lite@^1.4.3:
-  version "1.4.3"
-  resolved "https://registry.yarnpkg.com/geoip-lite/-/geoip-lite-1.4.3.tgz#a0bb4e079f91691ab4d8eb41877f4e045123c922"
-  integrity sha512-eIK7DVUij4haNuzMu0cJNbFv0rrRxJGvom9BAu7mroFCGfh6jYZn51FaojlXN23k7Pyw04LPpd+HF6z5qhO6qQ==
+geoip-lite@^1.4.4:
+  version "1.4.4"
+  resolved "https://registry.yarnpkg.com/geoip-lite/-/geoip-lite-1.4.4.tgz#8e8b8d37af8ad4fee86caaf0e3b0f24c6a64b34b"
+  integrity sha512-d/3NUZKiPfVhx88uDKjnCBxYRyXQYzxgx/aE3Dx/O0S+4D2OXVumMTrZc64B124rrygpFxyaa73SVqVGQhQ0Ww==
   dependencies:
     async "2.1 - 2.6.3"
     chalk "4.1 - 4.1.2"
