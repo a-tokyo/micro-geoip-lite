@@ -9,3 +9,6 @@ updates:
     directory: "/" # Location of package manifests
     schedule:
       interval: "weekly"
+    ignore:
+      - dependency-name: "geoip-lite"
+        # For geoip-lite, ignore all Dependabot updates since it crashes vercel starting 1.4.7
