@@ -6,7 +6,7 @@
 
 ## Usage
 
-- [https://geoip-lite.now.sh/?ip=207.97.227.239](https://geoip-lite.now.sh/?ip=207.97.227.239)
+- [https://micro-geoip-lite.ahmedtokyo.com/?ip=207.97.227.239](https://micro-geoip-lite.ahmedtokyo.com/?ip=207.97.227.239)
 ```js
 {
   ip: '207.97.227.239', // if ip param was not provided, this defaults to request.ip
