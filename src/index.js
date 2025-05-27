@@ -20,10 +20,8 @@ const MAX_TIMEOUT = DEFAULT_TIMEOUT * 2; // 10 seconds
 const rootRoute = async (req, res) => {
   const ip = req.query['ip'] || get_ip(req).clientIp;
   const timeout = Number(req.query['timeout']) || DEFAULT_TIMEOUT;
-
-  if (!net.isIP(ip)) {
-    return send(res, 400, { error: 'Please only submit valid IPs' });
-  }
+  const accept = req.headers['accept'] || '';
+  const isHtmlRequest = accept.includes('text/html');
 
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader(
@@ -35,14 +33,24 @@ const rootRoute = async (req, res) => {
     'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With',
   );
 
+  if (!net.isIP(ip)) {
+    const errorResult = { error: 'Please only submit valid IPs' };
+    if (isHtmlRequest) {
+      const html = generateHTML(errorResult);
+      res.setHeader('Content-Type', 'text/html');
+      return res.end(html);
+    } else {
+      return send(res, 400, errorResult);
+    }
+  }
+
   try {
     const result = await lookup(
       ip,
       Math.max(MIN_TIMEOUT, Math.min(timeout, MAX_TIMEOUT)),
     );
 
-    const accept = req.headers['accept'] || '';
-    if (accept.includes('text/html')) {
+    if (isHtmlRequest) {
       const html = generateHTML(result);
       res.setHeader('Content-Type', 'text/html');
       return res.end(html);
@@ -50,7 +58,14 @@ const rootRoute = async (req, res) => {
       return send(res, 200, result);
     }
   } catch (err) {
-    return send(res, 500, { error: err && err.message });
+    const errorResult = { error: err && err.message };
+    if (isHtmlRequest) {
+      const html = generateHTML(errorResult);
+      res.setHeader('Content-Type', 'text/html');
+      return res.end(html);
+    } else {
+      return send(res, 500, errorResult);
+    }
   }
 };
 
