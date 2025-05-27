@@ -14,7 +14,7 @@ const MAX_TIMEOUT = DEFAULT_TIMEOUT * 2; // 10 seconds
 /**
  * Root Route
  * @queryparam {string} ip - IP to geo decode
- * @queryparam {string} timout - timout in ms
+ * @queryparam {string} timout - timeout in ms
  */
 const rootRoute = async (req, res) => {
   const ip = req.query['ip'] || get_ip(req).clientIp;
@@ -39,9 +39,30 @@ const rootRoute = async (req, res) => {
       ip,
       Math.max(MIN_TIMEOUT, Math.min(timeout, MAX_TIMEOUT)),
     );
-    send(res, 200, result);
+
+    const accept = req.headers['accept'] || '';
+    if (accept.includes('text/html')) {
+      const html = `
+        <html>
+          <head><title>GeoIP Result</title></head>
+          <body>
+            <h1>GeoIP Information</h1>
+            <ul>
+              ${Object.entries(result || {}).map(
+                ([key, value]) =>
+                  `<li><strong>${key}:</strong> ${value}</li>`
+              ).join('')}
+            </ul>
+          </body>
+        </html>
+      `;
+      res.setHeader('Content-Type', 'text/html');
+      return res.end(html);
+    } else {
+      return send(res, 200, result);
+    }
   } catch (err) {
-    send(res, 500, { error: err && err.message });
+    return send(res, 500, { error: err && err.message });
   }
 };
 
