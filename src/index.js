@@ -6,6 +6,7 @@ const geoip = require('geoip-lite');
 const get_ip = require('ipware')().get_ip;
 
 const lookup = require('./lookup');
+const generateHTML = require('./generateHTML');
 
 const DEFAULT_TIMEOUT = 1000 * 5; // 5 seconds
 const MIN_TIMEOUT = 500; // 1/2 second
@@ -42,20 +43,7 @@ const rootRoute = async (req, res) => {
 
     const accept = req.headers['accept'] || '';
     if (accept.includes('text/html')) {
-      const html = `
-        <html>
-          <head><title>GeoIP Result</title></head>
-          <body>
-            <h1>GeoIP Information</h1>
-            <ul>
-              ${Object.entries(result || {}).map(
-                ([key, value]) =>
-                  `<li><strong>${key}:</strong> ${value}</li>`
-              ).join('')}
-            </ul>
-          </body>
-        </html>
-      `;
+      const html = generateHTML(result);
       res.setHeader('Content-Type', 'text/html');
       return res.end(html);
     } else {
