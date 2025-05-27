@@ -2,7 +2,6 @@ const net = require('net');
 
 const { router, get } = require('microrouter');
 const { send } = require('micro');
-const geoip = require('geoip-lite');
 const get_ip = require('ipware')().get_ip;
 
 const lookup = require('./lookup');
@@ -38,7 +37,7 @@ const rootRoute = async (req, res) => {
     if (isHtmlRequest) {
       const html = generateHTML(errorResult);
       res.setHeader('Content-Type', 'text/html');
-      return res.end(html);
+      return send(res, 400, html);
     } else {
       return send(res, 400, errorResult);
     }
@@ -53,7 +52,7 @@ const rootRoute = async (req, res) => {
     if (isHtmlRequest) {
       const html = generateHTML(result);
       res.setHeader('Content-Type', 'text/html');
-      return res.end(html);
+      return send(res, 200, html);
     } else {
       return send(res, 200, result);
     }
@@ -62,7 +61,7 @@ const rootRoute = async (req, res) => {
     if (isHtmlRequest) {
       const html = generateHTML(errorResult);
       res.setHeader('Content-Type', 'text/html');
-      return res.end(html);
+      return send(res, 500, html);
     } else {
       return send(res, 500, errorResult);
     }
