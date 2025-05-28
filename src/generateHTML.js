@@ -230,7 +230,7 @@ const generateHTML = (result) => {
                   <h2>Details</h2>
                   ${hasValidData ? `
                     <ul>
-                      ${Object.entries(result || {}).map(
+                      ${Object.entries(result).map(
                         ([key, value]) =>
                           `<li><strong>${key}:</strong> ${value}</li>`
                       ).join('')}
