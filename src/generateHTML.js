@@ -281,9 +281,11 @@ const generateHTML = (result) => {
                   mobileAdContainer.style.display = 'none';
                 }
 
-                // Initialize ads after DOM setup
-                window.adsbygoogle = window.adsbygoogle || [];
-                window.adsbygoogle.push({});
+                // Initialize all ads after DOM setup
+                const adElements = document.querySelectorAll('.adsbygoogle');
+                adElements.forEach(ad => {
+                  (window.adsbygoogle = window.adsbygoogle || []).push({});
+                });
               });
             </script>
 
