@@ -3,6 +3,7 @@ const generateHTML = (result) => {
     const hasValidData = result && !result.error && Object.keys(result).length > 0;
     
     return `
+        <!DOCTYPE html>
         <html>
           <head>
             <meta charset="UTF-8" />
@@ -242,14 +243,8 @@ const generateHTML = (result) => {
                 `}
               </div>
   
-             <div class="mobile-ad" style="max-width: 100%; overflow: hidden;">
-                 <!-- micro-geoip-lite-center-1 -->
-                 <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-5266987079964279"
-                     data-ad-slot="9567852882"
-                     data-ad-format="auto"
-                     data-full-width-responsive="true"></ins>
+             <div class="mobile-ad" id="mobile-ad-container" style="max-width: 100%; overflow: hidden;">
+                 <!-- Mobile ad slot 9567852882 will be injected here by JS if screen is small -->
              </div>
                
                 <div class="json-section">
@@ -266,13 +261,31 @@ const generateHTML = (result) => {
                     style="display:block"
                     data-ad-client="ca-pub-5266987079964279"
                     data-ad-slot="8543379979"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
+                    data-ad-format="auto"></ins>
             </div>
 
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5266987079964279"
                 crossorigin="anonymous"></script>
+
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                const mobileAdContainer = document.getElementById('mobile-ad-container');
+                const isMobile = window.innerWidth < 768;
+
+                if (isMobile && mobileAdContainer) {
+                  // Inject mobile ad for small screens
+                  mobileAdContainer.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5266987079964279" data-ad-slot="9567852882" data-ad-format="auto"></ins>';
+                  mobileAdContainer.style.display = 'block';
+                } else if (mobileAdContainer) {
+                  // Hide container for larger screens
+                  mobileAdContainer.style.display = 'none';
+                }
+
+                // Initialize ads after DOM setup
+                window.adsbygoogle = window.adsbygoogle || [];
+                window.adsbygoogle.push({});
+              });
+            </script>
 
             <div class="seo-content">
               <section class="info-section">
