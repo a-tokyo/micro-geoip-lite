@@ -481,6 +481,13 @@ const ipInfo = await geodecodeIp('8.8.8.8');</code></pre>
               });
             </script>
 
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-LXV1V39BSJ"></script>
+            <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LXV1V39BSJ');
+            </script>            
           </body>
         </html>
       `;
