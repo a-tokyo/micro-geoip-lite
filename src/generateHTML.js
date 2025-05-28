@@ -29,61 +29,86 @@ const generateHTML = (result) => {
             <meta property="twitter:image" content="https://ahmedtokyo.com/_next/image?url=%2Fimages%2Fprojects%2Fmicro_geoip_lite%2Fcover.jpg&w=3840&q=75">
 
             <style>
+              /* CSS Variables for consistent theming */
+              :root {
+                --primary-color: #3498db;
+                --secondary-color: #2c3e50;
+                --error-color: #e74c3c;
+                --warning-color: #ffc107;
+                --text-color: #333;
+                --text-light: #666;
+                --border-radius: 8px;
+                --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                --gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                --code-font: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+                --content-font: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+              }
+
+              /* Base Styles */
               body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+                font-family: var(--content-font);
                 max-width: 1200px;
                 margin: 0 auto;
                 padding: 20px;
                 line-height: 1.6;
-                color: #333;
+                color: var(--text-color);
               }
-              h1 {
-                color: #2c3e50;
-                border-bottom: 2px solid #3498db;
+
+              /* Typography */
+              h1, h2 {
+                color: var(--secondary-color);
+                border-bottom: 2px solid var(--primary-color);
                 padding-bottom: 10px;
                 margin-bottom: 30px;
               }
+
               h2 {
-                color: #2c3e50;
-                border-bottom: 2px solid #3498db;
-                padding-bottom: 10px;
                 margin-top: 0;
                 margin-bottom: 20px;
               }
+
+              /* Layout */
               .content-grid {
                 display: grid;
                 grid-template-columns: 1fr;
                 gap: 30px;
                 margin-bottom: 30px;
               }
+
               @media (min-width: 768px) {
                 .content-grid {
                   grid-template-columns: 1fr 1fr;
                 }
+                .mobile-ad {
+                  display: none;
+                }
               }
-              .info-section, .json-section {
-                min-width: 0; /* Prevents grid items from overflowing */
-              }
+
+              /* Lists */
               ul {
                 background: #f8f9fa;
                 padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #3498db;
+                border-radius: var(--border-radius);
+                border-left: 4px solid var(--primary-color);
                 margin: 0;
               }
+
               li {
                 margin: 8px 0;
               }
+
+              /* JSON Display */
               .json-container {
                 background: #2d3748;
-                border-radius: 8px;
+                border-radius: var(--border-radius);
                 padding: 20px;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                box-shadow: var(--box-shadow);
                 height: fit-content;
               }
+
               .json-code {
                 color: #e2e8f0;
-                font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+                font-family: var(--code-font);
                 font-size: 14px;
                 line-height: 1.5;
                 white-space: pre-wrap;
@@ -91,121 +116,150 @@ const generateHTML = (result) => {
                 margin: 0;
                 overflow-x: auto;
               }
+
+              /* Ads */
               .mobile-ad {
                 display: block;
                 margin: 20px 0;
               }
-              @media (min-width: 768px) {
-                .mobile-ad {
-                  display: none;
-                }
-              }
+
+              /* SEO Content Section */
               .seo-content {
-                margin-top: 40px;
+                margin: 40px 0;
                 padding: 30px;
-                background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+                background: var(--gradient);
                 border-radius: 12px;
                 box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
               }
+
               .seo-content h2 {
-                color: #2c3e50;
                 font-size: 28px;
-                margin-bottom: 20px;
                 text-align: center;
               }
+
               .seo-content h3 {
                 color: #34495e;
                 font-size: 22px;
-                margin-top: 30px;
-                margin-bottom: 15px;
-                border-left: 4px solid #3498db;
+                margin: 30px 0 15px;
+                border-left: 4px solid var(--primary-color);
                 padding-left: 15px;
               }
+
               .seo-content h4 {
-                color: #2c3e50;
+                color: var(--secondary-color);
                 font-size: 18px;
-                margin-top: 20px;
-                margin-bottom: 10px;
+                margin: 20px 0 10px;
               }
+
               .seo-content p {
                 margin-bottom: 15px;
                 text-align: justify;
                 line-height: 1.7;
               }
+
               .seo-content ul {
                 background: rgba(255, 255, 255, 0.7);
                 margin-bottom: 20px;
               }
+
               .seo-content li {
                 margin: 10px 0;
               }
+
+              .seo-content a {
+                color: var(--primary-color);
+                text-decoration: none;
+                font-weight: 600;
+              }
+
+              .seo-content a:hover {
+                text-decoration: underline;
+              }
+
+              /* Code Blocks */
               .code-block {
                 background: #2d3748;
-                border-radius: 8px;
+                border-radius: var(--border-radius);
                 padding: 15px;
                 margin: 15px 0;
                 overflow-x: auto;
               }
-              .code-block pre {
+
+              .code-block pre,
+              .code-block code {
                 margin: 0;
                 color: #e2e8f0;
-                font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+                font-family: var(--code-font);
                 font-size: 14px;
               }
-              .code-block code {
-                color: #e2e8f0;
-              }
+
+              /* Use Cases */
               .use-cases {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
                 gap: 20px;
                 margin: 20px 0;
               }
+
               .use-case {
                 background: rgba(255, 255, 255, 0.8);
                 padding: 20px;
-                border-radius: 8px;
-                border-left: 4px solid #e74c3c;
-                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                border-radius: var(--border-radius);
+                border-left: 4px solid var(--error-color);
+                box-shadow: var(--box-shadow);
               }
+
               .use-case h4 {
                 margin-top: 0;
-                color: #e74c3c;
+                color: var(--error-color);
               }
-              .seo-content a {
-                color: #3498db;
-                text-decoration: none;
-                font-weight: 600;
+
+              /* Footer */
+              footer {
+                text-align: center;
+                width: 100%;
+                margin-top: 40px;
+                padding: 20px 0;
+                color: var(--text-light);
+                border-top: 1px solid #e0e0e0;
               }
-              .seo-content a:hover {
-                text-decoration: underline;
-              }
+
+              /* Status Containers */
               .error-container {
                 background: #fee;
-                border: 2px solid #e74c3c;
-                border-radius: 8px;
+                border: 2px solid var(--error-color);
+                border-radius: var(--border-radius);
                 padding: 20px;
                 margin: 20px 0;
               }
+
               .error-container p {
                 margin: 10px 0;
                 color: #c0392b;
               }
+
               .error-container ul {
                 background: rgba(255, 255, 255, 0.8);
-                border-left: 4px solid #e74c3c;
+                border-left: 4px solid var(--error-color);
               }
+
               .no-data {
                 background: #fff3cd;
-                border: 2px solid #ffc107;
-                border-radius: 8px;
+                border: 2px solid var(--warning-color);
+                border-radius: var(--border-radius);
                 padding: 20px;
                 margin: 20px 0;
                 text-align: center;
               }
+
               .no-data p {
                 color: #856404;
                 margin: 0;
+              }
+
+              /* Utility Classes */
+              .info-section, .json-section {
+                min-width: 0; /* Prevents grid items from overflowing */
               }
             </style>
           </head>
@@ -263,31 +317,6 @@ const generateHTML = (result) => {
                     data-ad-slot="8543379979"
                     data-ad-format="auto"></ins>
             </div>
-
-            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5266987079964279"
-                crossorigin="anonymous"></script>
-
-            <script>
-              document.addEventListener('DOMContentLoaded', function() {
-                const mobileAdContainer = document.getElementById('mobile-ad-container');
-                const isMobile = window.innerWidth < 768;
-
-                if (isMobile && mobileAdContainer) {
-                  // Inject mobile ad for small screens
-                  mobileAdContainer.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5266987079964279" data-ad-slot="9567852882" data-ad-format="auto"></ins>';
-                  mobileAdContainer.style.display = 'block';
-                } else if (mobileAdContainer) {
-                  // Hide container for larger screens
-                  mobileAdContainer.style.display = 'none';
-                }
-
-                // Initialize all ads after DOM setup
-                const adElements = document.querySelectorAll('.adsbygoogle');
-                adElements.forEach(ad => {
-                  (window.adsbygoogle = window.adsbygoogle || []).push({});
-                });
-              });
-            </script>
 
             <div class="seo-content">
               <section class="info-section">
@@ -413,6 +442,45 @@ const ipInfo = await geodecodeIp('8.8.8.8');</code></pre>
                 </ul>
               </section>
             </div>
+
+            <div style="max-width: 100%; overflow: hidden;">
+                <!-- micro-geoip-lite-center-1 -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-5266987079964279"
+                    data-ad-slot="4402639198"
+                    data-ad-format="auto"></ins>
+            </div>
+
+            <footer>
+                Built with <span role="img" aria-label="love">❤️</span> by <a href="https://ahmedtokyo.com">Ahmed Tokyo</a>
+            </footer>
+
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5266987079964279"
+                crossorigin="anonymous"></script>
+
+            <script>
+              document.addEventListener('DOMContentLoaded', function() {
+                const mobileAdContainer = document.getElementById('mobile-ad-container');
+                const isMobile = window.innerWidth < 768;
+
+                if (isMobile && mobileAdContainer) {
+                  // Inject mobile ad for small screens
+                  mobileAdContainer.innerHTML = '<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5266987079964279" data-ad-slot="9567852882" data-ad-format="auto"></ins>';
+                  mobileAdContainer.style.display = 'block';
+                } else if (mobileAdContainer) {
+                  // Hide container for larger screens
+                  mobileAdContainer.style.display = 'none';
+                }
+
+                // Initialize all ads after DOM setup
+                const adElements = document.querySelectorAll('.adsbygoogle');
+                adElements.forEach(ad => {
+                  (window.adsbygoogle = window.adsbygoogle || []).push({});
+                });
+              });
+            </script>
+
           </body>
         </html>
       `;
