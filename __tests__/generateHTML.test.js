@@ -86,7 +86,7 @@ describe('generateHTML', () => {
       expect(html).toContain('document.addEventListener(\'DOMContentLoaded\'');
       expect(html).toContain('window.innerWidth < 768');
       expect(html).toContain('data-ad-slot="9567852882"');
-      expect(html).toContain('window.adsbygoogle.push({})');
+      expect(html).toContain('(window.adsbygoogle = window.adsbygoogle || []).push({})');
     });
 
     it('should include SEO content section', () => {
@@ -204,7 +204,7 @@ describe('generateHTML', () => {
       const html = generateHTML(mockResult);
       expect(html).toContain('.error-container');
       expect(html).toContain('background: #fee');
-      expect(html).toContain('border: 2px solid #e74c3c');
+      expect(html).toContain('border: 2px solid var(--error-color)');
     });
 
     it('should include JSON container styling', () => {
@@ -235,7 +235,7 @@ describe('generateHTML', () => {
     it('should include AdSense initialization', () => {
       const html = generateHTML(mockResult);
       expect(html).toContain('window.adsbygoogle = window.adsbygoogle || []');
-      expect(html).toContain('window.adsbygoogle.push({})');
+      expect(html).toContain('(window.adsbygoogle = window.adsbygoogle || []).push({})');
     });
   });
 }); 
