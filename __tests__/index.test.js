@@ -144,7 +144,7 @@ describe('API Endpoints', () => {
       expect(res.statusCode).toEqual(200);
       expect(res.text).toContain('pagead2.googlesyndication.com');
       expect(res.text).toContain('data-ad-client="ca-pub-5266987079964279"');
-      expect(res.text).toContain('window.adsbygoogle.push({})');
+      expect(res.text).toContain('(window.adsbygoogle = window.adsbygoogle || []).push({})');
     });
 
     it('should include SEO content in HTML response', async () => {
