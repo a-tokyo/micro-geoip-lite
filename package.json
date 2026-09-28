@@ -37,6 +37,6 @@
   "devDependencies": {
     "jest": "^30.0.0",
     "micro-geoip-lite": "^0.0.2",
-    "supertest": "^7.0.0"
+    "supertest": "^7.3.0"
   }
 }
